@@ -1,4 +1,5 @@
 @extends('layouts.backend.app')
+
 @push('css')
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css">
 @endpush
@@ -13,10 +14,12 @@
                     <div>Roles </div>
                 </div>
                 <div class="page-title-actions">
+
                     <a href="{{ route('app.roles.create') }}" class="btn-shadow mr-3 btn btn-primary">
                         <i class="fa fa-plus-circle"></i>
                         <span>Create Role</span>
                     </a>
+
                 </div>
             </div>
         </div>
