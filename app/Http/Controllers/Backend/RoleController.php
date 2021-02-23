@@ -50,6 +50,7 @@ class RoleController extends Controller
             'name' => $request->name,
             'slug' => Str::slug($request->name)
         ])->permissions()->sync($request->input('permissions'), []);
+        notify()->success("Role Added.","Success");
         return redirect()->route('app.roles.index');
     }
 
@@ -90,6 +91,7 @@ class RoleController extends Controller
             'slug' => Str::slug($request->name)
         ]);
         $role->permissions()->sync($request->input('permissions'));
+        notify()->success("Role Update.","Success");
         return redirect()->route('app.roles.index');
     }
 
@@ -101,6 +103,12 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
-        //
+        if ($role->deletable){
+            $role->delete();
+            notify()->success("Role Deleted.","Success");
+        } else{
+            notify()->error("You can\'t delete system role.","Error");
+        }
+        return  back();
     }
 }

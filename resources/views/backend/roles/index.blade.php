@@ -56,10 +56,19 @@
                                             <span>Edit</span>
                                         </a>
 
-                                        <button type="button" class="btn btn-danger btn-sm">
+                                        @if($role->deletable == true)
+
+                                        <button id="" type="button" class="btn btn-danger btn-sm" onclick="deleteData({{ $role->id }})">
                                             <i class="fas fa-trash"></i>
                                             <span>Delete</span>
                                         </button>
+
+                                        <form id="delete-form-{{ $role->id }}" method="POST" action="{{ route('app.roles.destroy', $role->id) }}" class="d-none">
+                                            @csrf
+                                            @method('DELETE')
+                                        </form>
+
+                                        @endif
                                     </td>
                                 </tr>
                                 @endforeach

@@ -34,7 +34,7 @@
                             <div class="form-group">
                                 <label for="name">Role Name</label>
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
-                                       name="name" value="{{ $role->name ?? old('name') }}" autocomplete="name" autofocus>
+                                       name="name" value="{{ $role->name ?? old('name') }}" autocomplete="name" autofocus required>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
