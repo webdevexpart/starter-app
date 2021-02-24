@@ -17,17 +17,19 @@ class UserSeeder extends Seeder
     public function run()
     {
         User::updateOrCreate([
-           'role_id' => Role::where('slug', 'admin')->first()->id,
-           'name' => 'Admin',
-           'email' => 'admin@gmail.com',
-           'password' => Hash::make('password')
+            'role_id' => Role::where('slug', 'admin')->first()->id,
+            'name' => 'Admin',
+            'email' => 'admin@gmail.com',
+            'password' => Hash::make('password'),
+            'status' => true
         ]);
 
         User::updateOrCreate([
             'role_id' => Role::where('slug', 'user')->first()->id,
             'name' => 'User',
             'email' => 'user@gmail.com',
-            'password' => Hash::make('password')
+            'password' => Hash::make('password'),
+            'status' => true
         ]);
     }
 }

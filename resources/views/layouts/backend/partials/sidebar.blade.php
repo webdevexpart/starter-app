@@ -48,6 +48,13 @@
                     </a>
                 </li>
 
+                <li>
+                    <a href="{{ route('app.users.index') }}" class="{{ Request::is('app/users*') ? 'mm-active' : '' }}">
+                        <i class="metismenu-icon pe-7s-users"></i>
+                        Users
+                    </a>
+                </li>
+
 
             </ul>
         </div>
