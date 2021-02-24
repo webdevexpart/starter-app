@@ -78,7 +78,8 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
+        Gate::authorize('app.users.index');
+        return view('backend.users.show', compact('user'));
     }
 
     /**
@@ -89,8 +90,11 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        Gate::authorize('app.users.edit');
+        $roles = Role::all();
+        return view('backend.users.form', compact('roles', 'user'));
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -101,7 +105,31 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        Gate::authorize('app.users.edit');
+
+
+        $this->validate($request, [
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users,email,'. $user->id,
+            'role' => 'required',
+            'password' => 'nullable|confirmed|string|min:8',
+            'avatar' => 'nullable|image'
+        ]);
+
+        $user->update([
+            'role_id' => $request->role,
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => isset($request->password) ? Hash::make($request->password) : $user->password,
+            'status' => $request->filled('status'),
+        ]);
+
+        if ($request->hasFile('avatar')) {
+            $user->addMedia($request->avatar)->toMediaCollection('avatar');
+        }
+
+        notify()->success("User Updated", 'Success');
+        return back();
     }
 
     /**

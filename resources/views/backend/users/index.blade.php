@@ -9,14 +9,14 @@
             <div class="page-title-wrapper">
                 <div class="page-title-heading">
                     <div class="page-title-icon">
-                        <i class="pe-7s-check icon-gradient bg-mean-fruit"></i>
+                        <i class="pe-7s-users icon-gradient bg-mean-fruit"></i>
                     </div>
                     <div>Users </div>
                 </div>
                 <div class="page-title-actions">
 
                     <a href="{{ route('app.users.create') }}" class="btn-shadow mr-3 btn btn-primary">
-                        <i class="fa fa-plus-circle"></i>
+                        <i class="fa fa-plus-circle mr-1"></i>
                         <span>Create User</span>
                     </a>
 
@@ -79,16 +79,16 @@
                                     <td class="text-center">{{ $user->created_at->diffForHumans() }}</td>
                                     <td class="text-center">
                                         <a class="btn btn-secondary btn-sm" href="{{ route('app.users.show',$user->id) }}">
-                                            <i class="fas fa-eye"></i>
+                                            <i class="fas fa-eye mr-1"></i>
                                             <span>Show</span>
                                         </a>
                                         <a class="btn btn-info btn-sm" href="{{ route('app.users.edit',$user->id) }}">
-                                            <i class="fas fa-edit"></i>
+                                            <i class="fas fa-edit mr-1"></i>
                                             <span>Edit</span>
                                         </a>
                                         <button type="button" class="btn btn-danger btn-sm"
                                                 onclick="deleteData({{ $user->id }})">
-                                            <i class="fas fa-trash-alt"></i>
+                                            <i class="fas fa-trash-alt mr-1"></i>
                                             <span>Delete</span>
                                         </button>
                                         <form id="delete-form-{{ $user->id }}"

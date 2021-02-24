@@ -11,7 +11,7 @@
                 </div>
                 <div class="page-title-actions">
                     <a href="{{route('app.roles.index')}}" class="btn-shadow mr-3 btn btn-danger">
-                        <i class="fa fa-arrow-alt-circle-left"></i>
+                        <i class="fa fa-arrow-alt-circle-left mr-1"></i>
                         <span>Back to list</span>
                     </a>
                 </div>
@@ -97,10 +97,10 @@
                             <hr>
                             <button type="submit" class="btn btn-primary">
                                 @isset($role)
-                                    <i class="fas fa-arrow-circle-up"></i>
+                                    <i class="fas fa-arrow-circle-up mr-1"></i>
                                     <span>Update</span>
                                 @else
-                                    <i class="fas fa-plus-circle"></i>
+                                    <i class="fas fa-plus-circle mr-1"></i>
                                     <span>Create</span>
                                 @endisset
                             </button>

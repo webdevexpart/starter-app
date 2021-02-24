@@ -16,7 +16,7 @@
                 <div class="page-title-actions">
 
                     <a href="{{ route('app.roles.create') }}" class="btn-shadow mr-3 btn btn-primary">
-                        <i class="fa fa-plus-circle"></i>
+                        <i class="fa fa-plus-circle mr-1"></i>
                         <span>Create Role</span>
                     </a>
 
@@ -56,14 +56,14 @@
                                     <td class="text-center">{{ $role->updated_at->diffForHumans() }}</td>
                                     <td class="text-center">
                                         <a href="{{ route('app.roles.edit', $role->id) }}" class="btn btn-primary btn-sm">
-                                            <i class="fas fa-edit"></i>
+                                            <i class="fas fa-edit mr-1"></i>
                                             <span>Edit</span>
                                         </a>
 
                                         @if($role->deletable == true)
 
                                         <button id="" type="button" class="btn btn-danger btn-sm" onclick="deleteData({{ $role->id }})">
-                                            <i class="fas fa-trash"></i>
+                                            <i class="fas fa-trash mr-1"></i>
                                             <span>Delete</span>
                                         </button>
 
