@@ -74,5 +74,89 @@ class PermissionSeeder extends Seeder
             'slug' => 'app.users.destroy'
         ]);
 
+
+        // Backups
+        $moduleAppBackups = Module::updateOrCreate(['name' => 'Backups']);
+        Permission::updateOrCreate([
+            'module_id' => $moduleAppBackups->id,
+            'name' => 'Access Backup',
+            'slug' => 'app.backups.index'
+        ]);
+
+        Permission::updateOrCreate([
+            'module_id' => $moduleAppBackups->id,
+            'name' => 'Create Backups',
+            'slug' => 'app.backups.create'
+        ]);
+
+        Permission::updateOrCreate([
+            'module_id' => $moduleAppBackups->id,
+            'name' => 'Download Backup',
+            'slug' => 'app.backups.download'
+        ]);
+
+        Permission::updateOrCreate([
+            'module_id' => $moduleAppBackups->id,
+            'name' => 'Delete Backup',
+            'slug' => 'app.backups.destroy'
+        ]);
+
+        // Pages
+        $moduleAppPage = Module::updateOrCreate(['name' => 'Page']);
+        Permission::updateOrCreate([
+            'module_id' => $moduleAppPage->id,
+            'name' => 'Access Pages',
+            'slug' => 'app.pages.index'
+        ]);
+
+        Permission::updateOrCreate([
+            'module_id' => $moduleAppPage->id,
+            'name' => 'Create Page',
+            'slug' => 'app.pages.create'
+        ]);
+
+        Permission::updateOrCreate([
+            'module_id' => $moduleAppPage->id,
+            'name' => 'Edit Page',
+            'slug' => 'app.pages.edit'
+        ]);
+
+        Permission::updateOrCreate([
+            'module_id' => $moduleAppPage->id,
+            'name' => 'Delete Page',
+            'slug' => 'app.pages.destroy'
+        ]);
+
+        // Menus
+        $moduleAppMenu = Module::updateOrCreate(['name' => 'Menu']);
+        Permission::updateOrCreate([
+            'module_id' => $moduleAppMenu->id,
+            'name' => 'Access Menu Bulider',
+            'slug' => 'app.menus.builder'
+        ]);
+        Permission::updateOrCreate([
+            'module_id' => $moduleAppMenu->id,
+            'name' => 'Access Menus',
+            'slug' => 'app.menus.index'
+        ]);
+
+        Permission::updateOrCreate([
+            'module_id' => $moduleAppMenu->id,
+            'name' => 'Create Menus',
+            'slug' => 'app.menus.create'
+        ]);
+
+        Permission::updateOrCreate([
+            'module_id' => $moduleAppMenu->id,
+            'name' => 'Edit Menus',
+            'slug' => 'app.menus.edit'
+        ]);
+
+        Permission::updateOrCreate([
+            'module_id' => $moduleAppMenu->id,
+            'name' => 'Delete Menus',
+            'slug' => 'app.menus.destroy'
+        ]);
+
     }
 }

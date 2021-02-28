@@ -2,5 +2,6 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/storage/app/LaraStarter/2021-02-24-12-19-04/xampp/htdocs/starter-app" vcs="Git" />
   </component>
 </project>

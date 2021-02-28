@@ -1,6 +1,10 @@
 <div class="app-header header-shadow">
     <div class="app-header__logo">
-        <div class="logo-src"></div>
+{{--        <div class="logo-src"></div>--}}
+        <div class="navbar-brand">{{ setting('site_title', 'Starter Pack') }}</div>
+{{--        <div class="navbar-brand">--}}
+{{--            <img src="{{ Storage::url(setting('site_logo')) }}" width="130px" height="30px" alt="Logo">--}}
+{{--        </div>--}}
         <div class="header__pane ml-auto">
             <div>
                 <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
@@ -49,12 +53,12 @@
                         <div class="widget-content-left">
                             <div class="btn-group">
                                 <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
-                                    <img width="42" class="rounded-circle" src="/assets/images/avatars/1.jpg" alt="">
+                                    <img width="42" class="rounded-circle" src="{{ Auth::user()->getFirstMediaUrl('avatar') }}" alt="">
                                     <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                 </a>
                                 <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
-                                    <a href="" tabindex="0" class="dropdown-item">Profile</a>
-                                    <a href="" tabindex="0" class="dropdown-item">Change Password</a>
+                                    <a href="{{ route('app.profile.index') }}" tabindex="0" class="dropdown-item">Profile</a>
+                                    <a href="{{ route('app.profile.password.change') }}" tabindex="0" class="dropdown-item">Change Password</a>
                                     <a href="" tabindex="0" class="dropdown-item">Settings</a>
                                     <div tabindex="-1" class="dropdown-divider"></div>
                                     <button type="button" tabindex="0" class="dropdown-item" onclick="event.preventDefault();
