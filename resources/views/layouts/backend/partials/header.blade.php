@@ -36,9 +36,9 @@
     <div class="app-header__content">
         <div class="app-header-left">
 
-            <ul class="header-menu nav">
+            <ul class="header-menu nav ml-5">
                 <li class="dropdown nav-item">
-                    <a href="javascript:void(0);" class="nav-link">
+                    <a href="{{ route('home') }}" class="nav-link">
                         <i class="nav-link-icon fa fa-cog"></i>
                         Visit Site
                     </a>

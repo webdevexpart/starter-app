@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,6 +22,11 @@ Route::get('/', function () {
 
 
 Auth::routes();
+
+Route::group(['as'=>'login.', 'prefix'=>'login'], function () {
+    Route::get('/{provider}', [LoginController::class, 'redirectToProvider'])->name('provider');
+    Route::get('/{provider}/callback', [LoginController::class, 'handleProviderCallback'])->name('callback');
+});
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

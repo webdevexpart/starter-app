@@ -121,4 +121,35 @@ class SettingController extends Controller
         notify()->success('Settings Updated.', 'Success');
         return back();
     }
+
+    public function socialite()
+    {
+        return view('backend.settings.socialite');
+    }
+
+    public function socialiteUpdate(Request $request)
+    {
+        $this->validate($request,[
+            'google_client_id' => 'nullable|string|max:255',
+            'google_client_secret' => 'nullable|string|max:255',
+            'github_client_id' => 'nullable|string|max:255',
+            'github_client_secret' => 'nullable|string|max:255',
+        ]);
+
+        Setting::updateOrCreate(['name' => 'google_client_id'], ['value' => $request->get('google_client_id')]);
+        Artisan::call("env:set GITHUB_CLIENT_ID='".$request->get('google_client_id')."'");
+
+        Setting::updateOrCreate(['name' => 'google_client_secret'], ['value' => $request->get('google_client_secret')]);
+        Artisan::call("env:set GITHUB_CLIENT_SECRET='".$request->get('google_client_secret')."'");
+
+        Setting::updateOrCreate(['name' => 'github_client_id'], ['value' => $request->get('github_client_id')]);
+        Artisan::call("env:set GOOGLE_CLIENT_ID='".$request->get('github_client_id')."'");
+
+        Setting::updateOrCreate(['name' => 'github_client_secret'], ['value' => $request->get('github_client_secret')]);
+        Artisan::call("env:set GOOGLE_CLIENT_SECRET='".$request->get('github_client_secret')."'");
+
+
+        notify()->success('Settings Updated.', 'Success');
+        return back();
+    }
 }
